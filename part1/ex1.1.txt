@@ -1,0 +1,39 @@
+$ docker pull nginx
+Using default tag: latest
+latest: Pulling from library/nginx
+Digest: sha256:a484819eb60211f5299034ac80f6a681b06f89e65866ce91f356ed7c72af059c
+Status: Image is up to date for nginx:latest
+docker.io/library/nginx:latest
+
+What's Next?
+  View a summary of image vulnerabilities and recommendations → docker scout quickview nginx
+
+oonam@LAPTOP
+$ docker run -d --name first nginx
+52342ed5935e9b0713c567f3ed4095f3617c5c72aaf260462688ffee07ec89dd
+
+oonam@LAPTOP
+$ docker run -d --name second nginx
+99460b6189cbdd1599b6982fb80e1ba4b580b6ec2c2038ebabd972b9b9e0cafc
+
+oonam@LAPTOP
+$ docker run -d --name third nginx
+b1b582a22b2f90da726667b85290413e6e2cf8bb4154752ca4b5b1b0c579f920
+
+oonam@LAPTOP
+$ docker stop first
+first
+
+oonam@LAPTOP
+$ docker stop second
+second
+
+oonam@LAPTOP
+$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS                      PORTS     NAMES
+b1b582a22b2f   nginx     "/docker-entrypoint.…"   18 seconds ago   Up 17 seconds               80/tcp    third
+99460b6189cb   nginx     "/docker-entrypoint.…"   33 seconds ago   Exited (0) 5 seconds ago
+  second
+52342ed5935e   nginx     "/docker-entrypoint.…"   45 seconds ago   Exited (0) 11 seconds ago
+  first
+53e50c7ed0ae   nginx     "/docker-entrypoint.…"   10 minutes ago   Exited (0) 9 minutes ago
