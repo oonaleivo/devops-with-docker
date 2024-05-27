@@ -1,0 +1,53 @@
+terminal 1:
+oonam@LAPTOP ~
+$ docker run -it ubuntu sh -c "while true; do echo 'Input website:'; read website; echo 'Searching..'; sleep 1; curl http://$website; done"
+Input website:
+
+Terminal 2:
+oonam@LAPTOP ~
+$ docker ps
+CONTAINER ID   IMAGE                                      COMMAND                  CREATED             STATUS             PORTS     NAMES
+9cd3871c43b1   ubuntu                                     "sh -c 'while true; …"   57 seconds ago      Up 55 seconds                
+
+oonam@LAPTOP ~
+$ docker exec -it 9c bash
+root@9cd3871c43b1:/# apt install -y curl
+root@9cd3871c43b1:/# 
+
+Terminal 1:
+helsinki.fi
+Searching..
+curl: (3) URL rejected: No host part in the URL
+Input website:
+
+Terminal 3: 
+oonam@LAPTOP ~
+$ docker run -it ubuntu bash -c "while true; do echo 'Input website:'; read website; echo 'Searching..'; sleep 1; curl http://\$website; done"
+Input website:
+
+
+Terminal 4:
+oonam@LAPTOP ~
+$ docker ps
+CONTAINER ID   IMAGE                                      COMMAND                  CREATED             STATUS             PORTS     NAMES
+66dfdedbbb5f   ubuntu                                     "bash -c 'while true…"   49 seconds ago      Up 48 seconds                
+
+oonam@LAPTOP ~
+$ docker exec -it 66 bash
+root@66dfdedbbb5f:/# apt update
+root@66dfdedbbb5f:/# apt install -y curl
+root@66dfdedbbb5f:/#
+
+
+Terminal 3:
+helsinki.fi
+Searching..
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>nginx/1.22.1</center>
+</body>
+</html>
+
+
