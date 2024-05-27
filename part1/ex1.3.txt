@@ -1,0 +1,53 @@
+oonam@LAPTOP
+$ docker pull devopsdockeruh/simple-web-service:ubuntu
+ubuntu: Pulling from devopsdockeruh/simple-web-service
+5d3b2c2d21bb: Pull complete
+3fc2062ea667: Pull complete
+75adf526d75b: Pull complete
+965d4bbb586a: Pull complete
+4f4fb700ef54: Pull complete
+Digest: sha256:d44e1dce398732e18c7c2bad9416a072f719af33498302b02929d4c112e88d2a
+Status: Downloaded newer image for devopsdockeruh/simple-web-service:ubuntu
+docker.io/devopsdockeruh/simple-web-service:ubuntu
+
+What's Next?
+  View a summary of image vulnerabilities and recommendations → docker scout quickview devopsdockeruh/simple-web-service:ubuntu
+
+oonam@LAPTOP
+$ docker run -d --name simple-web-service devopsdockeruh/simple-web-service:ubuntu
+598280ad7b5c7f1be8494a7e9674fe56c8960c60502db7544ddfcaa9897ec368
+
+oonam@LAPTOP
+$ docker exec -it simple-web-service bash
+root@598280ad7b5c:/usr/src/app# tail -f ./text.log
+2024-05-27 07:35:38 +0000 UTC
+2024-05-27 07:35:40 +0000 UTC
+2024-05-27 07:35:42 +0000 UTC
+2024-05-27 07:35:44 +0000 UTC
+2024-05-27 07:35:46 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2024-05-27 07:35:48 +0000 UTC
+2024-05-27 07:35:50 +0000 UTC
+2024-05-27 07:35:52 +0000 UTC
+2024-05-27 07:35:54 +0000 UTC
+2024-05-27 07:35:56 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2024-05-27 07:35:58 +0000 UTC
+2024-05-27 07:36:00 +0000 UTC
+2024-05-27 07:36:02 +0000 UTC
+2024-05-27 07:36:04 +0000 UTC
+2024-05-27 07:36:06 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2024-05-27 07:36:08 +0000 UTC
+2024-05-27 07:36:10 +0000 UTC
+2024-05-27 07:36:12 +0000 UTC
+2024-05-27 07:36:14 +0000 UTC
+2024-05-27 07:36:16 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+2024-05-27 07:36:18 +0000 UTC
+2024-05-27 07:36:20 +0000 UTC
+2024-05-27 07:36:22 +0000 UTC
+2024-05-27 07:36:24 +0000 UTC
+2024-05-27 07:36:26 +0000 UTC
+^C
+root@598280ad7b5c:/usr/src/app#
